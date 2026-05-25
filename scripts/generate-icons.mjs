@@ -29,14 +29,16 @@ function renderIcon(size) {
 }
 
 function sampleIcon(x, y) {
-  const shadow = chainCoverage(x - 0.018, y - 0.024, 0.089, 0.012);
-  const stroke = chainCoverage(x, y, 0.082, 0.01);
-  const highlight = chainCoverage(x + 0.012, y + 0.016, 0.035, 0.01);
+  const shadow = chainCoverage(x - 0.018, y - 0.024, 0.112, 0.012);
+  const outline = chainCoverage(x, y, 0.112, 0.01);
+  const stroke = chainCoverage(x, y, 0.074, 0.01);
+  const highlight = chainCoverage(x + 0.012, y + 0.016, 0.028, 0.01);
 
   let color = [0, 0, 0, 0];
-  color = blend(color, [8, 24, 55, shadow * 0.2]);
-  color = blend(color, [37, 99, 235, stroke * 0.98]);
-  color = blend(color, [125, 183, 255, highlight * 0.34]);
+  color = blend(color, [0, 0, 0, shadow * 0.28]);
+  color = blend(color, [43, 48, 59, outline * 0.98]);
+  color = blend(color, [246, 248, 250, stroke * 0.96]);
+  color = blend(color, [255, 255, 255, highlight * 0.3]);
 
   return color;
 }
