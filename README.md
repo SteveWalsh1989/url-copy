@@ -1,38 +1,45 @@
 # Copy Current URL
 
-A minimal Chrome extension that copies the current active tab URL to the clipboard when you click the extension toolbar icon.
+A minimal Chrome extension that copies the current active tab URL to your clipboard with one toolbar click.
 
-## Install locally
+## What it does
 
-1. Open `chrome://extensions` in Chrome.
-2. Turn on **Developer mode**.
-3. Click **Load unpacked**.
-4. Select this folder: `/Users/stevewalsh/Documents/Projects/url-copy`.
-5. Pin **Copy Current URL** from Chrome's extensions menu for the intended one-click toolbar workflow.
+- Copies the active tab's exact URL as-is.
+- Does not open a popup.
+- Does not require a second click.
+- Does not copy the page title.
+- Does not store copied URLs.
+- Does not send anything over the network.
 
-Once pinned, one click on the toolbar icon copies the active tab URL immediately. No popup or second click is used.
+## How to use
+
+1. Install the extension in a Chromium-based browser.
+2. Pin **Copy Current URL** to the browser toolbar.
+3. Open any normal webpage.
+4. Click the extension icon once.
+5. Paste the copied URL wherever you need it.
+
+After a successful copy, the extension briefly shows an `OK` badge. If the browser blocks access to the current page or clipboard, it briefly shows an `ERR` badge instead.
+
+## Local installation
+
+1. Clone or download this repository.
+2. Open `chrome://extensions` in Chrome or another Chromium-based browser.
+3. Turn on **Developer mode**.
+4. Click **Load unpacked**.
+5. Select the repository folder.
+6. Pin **Copy Current URL** from the browser's extensions menu.
+
+The intended workflow is one click after the extension has been pinned to the toolbar. If the extension is not pinned, the browser may require opening the extensions menu first.
 
 ## Permissions
 
-- `activeTab`: reads the current tab URL only after you click the extension action.
-- `offscreen`: creates a hidden extension document so Manifest V3 can access the Clipboard API without opening UI.
-- `clipboardWrite`: writes the active tab URL to your clipboard.
+- `activeTab`: reads the current tab URL only after you click the extension icon.
+- `offscreen`: creates a hidden extension document so the clipboard can be updated without opening UI.
+- `clipboardWrite`: writes the current tab URL to your clipboard.
 
-The extension does not request host permissions, store URLs, inject page UI, or send network requests. Restricted browser pages may fail if Chrome does not expose the tab URL or blocks clipboard access; the icon shows a temporary failure badge in that case.
+The extension does not request host permissions, inject content scripts, add page UI, store data, or make network requests.
 
-## Publish to the Chrome Web Store
+## Notes
 
-1. Test the unpacked extension locally in Chrome.
-2. Create or finish a Chrome Web Store developer account in the [Developer Dashboard](https://chrome.google.com/webstore/devconsole/). Google requires a one-time developer registration fee and 2-Step Verification before publishing.
-3. From this project root, create an upload ZIP with only the extension runtime files:
-
-   ```sh
-   zip -r copy-current-url-1.0.0.zip manifest.json background.js offscreen.html offscreen.js icons
-   ```
-
-4. In the Developer Dashboard, choose **Add new item**, upload the ZIP, and complete the Store Listing, Privacy, and Distribution tabs.
-5. In the Privacy tab, describe the single purpose clearly: copying the active tab URL to the clipboard after the user clicks the toolbar icon. Declare that the extension does not collect, store, transmit, or sell user data.
-6. Choose visibility: **Private** for trusted testers, **Unlisted** for sharing by direct link, or **Public** for a normal searchable listing.
-7. Submit for review. If you need to change code after submission, increase `manifest.json`'s `version`, recreate the ZIP, and upload the new package.
-
-Official docs: [Prepare your extension](https://developer.chrome.com/docs/webstore/prepare), [Publish in the Chrome Web Store](https://developer.chrome.com/docs/webstore/publish), [Distribution settings](https://developer.chrome.com/docs/webstore/cws-dashboard-distribution), and [Program Policies](https://developer.chrome.com/docs/webstore/program-policies).
+Restricted browser pages, such as some `chrome://` pages, may not allow the extension to read or copy the page URL. Normal webpages should work as expected.
