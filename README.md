@@ -2,6 +2,8 @@
 
 A minimal Chrome extension that copies the current active tab URL to your clipboard with one toolbar click.
 
+[Download Copy Current URL](https://github.com/SteveWalsh1989/url-copy/releases/latest)
+
 ## What it does
 
 - Copies the active tab's exact URL as-is.
@@ -13,7 +15,7 @@ A minimal Chrome extension that copies the current active tab URL to your clipbo
 
 ## How to use
 
-1. Install the extension in a Chromium-based browser.
+1. [Install the extension](#download-and-install) in Chrome.
 2. Pin **Copy Current URL** to the browser toolbar.
 3. Open any normal webpage.
 4. Click the extension icon once.
@@ -21,16 +23,17 @@ A minimal Chrome extension that copies the current active tab URL to your clipbo
 
 After a successful copy, the extension briefly shows an `OK` badge. If the browser blocks access to the current page or clipboard, it briefly shows an `ERR` badge instead.
 
-## Local installation
+## Download and install
 
-1. Clone or download this repository.
-2. Open `chrome://extensions` in Chrome or another Chromium-based browser.
-3. Turn on **Developer mode**.
-4. Click **Load unpacked**.
-5. Select the repository folder.
-6. Pin **Copy Current URL** from the browser's extensions menu.
+Requires Chrome 116 or newer.
 
-The intended workflow is one click after the extension has been pinned to the toolbar. If the extension is not pinned, the browser may require opening the extensions menu first.
+1. Download **Copy-Current-URL.zip** from the [latest GitHub release](https://github.com/SteveWalsh1989/url-copy/releases/latest).
+2. Unzip it into a folder you can keep. Chrome loads the extension from this folder.
+3. Open `chrome://extensions` and turn on **Developer mode** in the top-right corner.
+4. Click **Load unpacked** and select the extracted folder containing `manifest.json`.
+5. Open Chrome's **Extensions** menu and pin **Copy Current URL**.
+
+Updates are manual. Download a newer ZIP, replace the files in the same folder, then click **Reload** on the extension card at `chrome://extensions`.
 
 ## Permissions
 
